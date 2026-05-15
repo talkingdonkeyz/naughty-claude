@@ -16,7 +16,7 @@ async function main() {
     cwd: process.cwd(),
     permissionMode: "bypassPermissions",
     model: "haiku",
-    // extraArgs: ["--tools", "READ"], // no tools — keep the turn short and deterministic
+    extraArgs: ["--tools", ""], // no tools — keep the turn short and deterministic
   });
 
   console.log("starting claude…");

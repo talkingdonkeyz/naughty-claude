@@ -10,7 +10,7 @@ export type { ClaudeSession, ClaudeSessionOptions, AskOptions } from "./claude.j
 const DEFAULT_SOCKET = "agent"
 
 export interface TmuxOptions {
-  /** tmux -L socket name. Defaults to a library-specific name so we don't collide with the user's tmux. */
+  /** tmux -L socket name. */
   socket?: string;
   /** Override the tmux binary path. */
   tmuxBin?: string;

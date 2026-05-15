@@ -190,7 +190,7 @@ export function createClaudeSession(opts: ClaudeSessionOptions): ClaudeSession {
   /** Kill the underlying tmux session. The transcript file remains on disk. */
   async function close(): Promise<void> {
     if (!tmuxSession) return;
-    await tmux.killSession(tmuxSession.id).catch(() => {});
+    await tmux.killSession(tmuxSession.id).catch(() => { });
     tmuxSession = undefined;
     pane = undefined;
   }
@@ -225,8 +225,7 @@ export async function ask(
 }
 
 function encodeProjectDir(cwd: string): string {
-  // Claude Code encodes the project's absolute path by replacing slashes
-  // with dashes. For /workspaces/foo this gives "-workspaces-foo".
+  // Encode absolute path by replacing slashes with dashes, e.g. "/foo/bar" > "-foo-bar".
   return cwd.replace(/\//g, "-");
 }
 

@@ -17,8 +17,10 @@ async function main() {
   // Fresh slate.
   await t.shutdown();
 
-  const a = await t.createSession({ name: "alpha", width: 120, height: 30 });
-  const b = await t.createSession({ name: "beta", width: 120, height: 30 });
+  const [a, b] = await Promise.all([
+    t.createSession({ name: "alpha", width: 120, height: 30 }),
+    t.createSession({ name: "beta", width: 120, height: 30 }),
+  ]);
   console.log("created:", a, b);
 
   const panes = await t.listPanes();
